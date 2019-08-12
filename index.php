@@ -133,13 +133,13 @@ require 'config.php';
 	  <label class="radio">
 
 	   <div class="select is-rounded">
-  		<select name = "institutions">
+  		<select>
 		    <option>Please select the institution you work at</option>
 		    <?php 
 		    while ($row1 = $resultSet->fetch_assoc())
 		    {
 		    	$int_name = $row1['Institution'];
-		    	echo "<option value = '$int_name'>$int_name</option>";
+		    	echo "<option name = "institutions" value = '$int_name'>$int_name</option>";
 		    }?>
   		</select>
 	</div>
