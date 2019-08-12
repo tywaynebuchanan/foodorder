@@ -39,9 +39,8 @@ require 'config.php';
 						
 						} else { echo "0 results"; }
 					
+		
 
-
-			mysqli_close($conn);
 
 
 
@@ -57,12 +56,12 @@ require 'config.php';
 
 
 <div>
-	<form action="index.php" method="POST">
+	<form action="insert.php" method="POST">
 	<div style="padding-top: 10px;">
 		<div class="container is-widescreen">
 			
 				<label class="label"> First Name </label>
-				<input class="input" type="text" name="firstname"  placeholder="Place your first name here">
+				<input class="input" type="text" name="firstname"  placeholder="Place your first name here" required>
 			
 		</div>
 	</div>
@@ -71,11 +70,25 @@ require 'config.php';
 		<div class="container is-widescreen">
 		
 				<label class="label"> Last Name </label>
-				<input class="input" type="text" name="lastname" placeholder="Place your last name here" >
+				<input class="input" type="text" name="lastname" placeholder="Place your last name here" required >
 			
 		</div>
 	</div>
 
+	<div class="container" style="padding-top: 10px;">
+	
+		<label class="label"> Please select institution</label>
+	  <label class="radio">
+
+	    <input type="radio" name="answer4" value="Metcalfe Street" >
+	    Metcalfe Street
+	  </label>
+	  <label class="radio">
+	    <input type="radio" name="answer4" value="General Pen">
+	    General Pen (GP)
+	  </label>
+
+	</div>
 	<div class="control container" style="padding-top:10px;">
 	  <label class="label"> Please select meat</label>
 	  <label class="radio">
@@ -100,6 +113,10 @@ require 'config.php';
 	    <input type="radio" name="answer2" value="Plain Rice">
 	    Plain Rice
 	  </label>
+	  <label class="radio">
+	    <input type="radio" name="answer2" value="Ground Provision">
+	    Ground Provision
+	  </label>
 	</div>
 
 	<div class="control container" style="padding-top:10px;">
@@ -115,44 +132,13 @@ require 'config.php';
 	</div>
 
 	<div class="control container" style="padding-top: 10px;">
-  		<button class="button is-info" name="submit">Submit</button>
+  		<button class="button is-info is-outlined" name="submit">Submit</button>
 	</div>
 
 </form>
 </div>
 <div class="container">
-<?php
-	
 
-	if (isset($_POST['submit'])){
-
-		$conn = mysqli_connect($db_host,$db_user,$db_password) or die ('The username or password is incorrect');
-mysqli_select_db($conn,$mysql_db) or die('Not such database present');
-	
-						$firstname = $_POST['firstname'];
-						$lastname = $_POST['lastname'];
-						$answer1 = $_POST['answer1'];
-						$answer2 = $_POST['answer2'];
-						$answer3 = $_POST['answer3'];
-
-						$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Meat,Rice,Side) values ('$firstname','$lastname','$answer1','$answer2','$answer3');";
-
-					if(mysqli_query($conn,$sql1))
-					{
-						echo "Your lunch order was placed. Thank you";
-					}
-
-					else
-					{
-						echo "Failed to enter data";
-					}
-
-					mysqli_close($conn);
-}
-	
-
-	
-?>
 	
 </div>
 <script
