@@ -23,7 +23,7 @@ mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 						$yes = count($resultusercheck);
 						if ($yes>0){
 
-							header('Location:/foodorder/error.php');
+							header('Location:../error.php');
 							echo "You have placed your order already";
 
 						}	
