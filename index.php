@@ -77,7 +77,9 @@ require 'config.php';
 	</div>
 
 	<div class="control container" style="padding-top:10px;">
+	  <label class="label"> Please select meat</label>
 	  <label class="radio">
+
 	    <input type="radio" name="answer1" value="Chicken" >
 	    Chicken
 	  </label>
@@ -88,6 +90,8 @@ require 'config.php';
 	</div>
 
 	<div class="control container" style="padding-top:10px;">
+	 
+	 <label class="label"> Please select your staple</label>
 	  <label class="radio">
 	    <input type="radio" name="answer2" value="Rice and Peas">
 	    Rice and Peas
@@ -99,6 +103,7 @@ require 'config.php';
 	</div>
 
 	<div class="control container" style="padding-top:10px;">
+	   <label class="label"> Please select your side order</label>
 	  <label class="radio">
 	    <input type="radio" name="answer3" value="Mac and Cheese">
 	    Mac and Cheese
@@ -110,7 +115,7 @@ require 'config.php';
 	</div>
 
 	<div class="control container" style="padding-top: 10px;">
-  		<button class="button is-primary" name="submit">Submit</button>
+  		<button class="button is-info" name="submit">Submit</button>
 	</div>
 
 </form>
