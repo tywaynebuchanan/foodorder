@@ -130,6 +130,11 @@ require 'config.php';
 	
 
 	</div>
+
+	<div class="control container" style="padding-top:10px;">
+	  
+	</div>
+
 	<div class="control container" style="padding-top:10px;">
 	  <label class="label"> Please select meat</label>
 	  <label class="radio">
@@ -172,6 +177,22 @@ require 'config.php';
 	  </label>
 	</div>
 
+
+<div class="container" style="padding-top: 10px;">
+<div class="select is-rounded">
+  <select name = "institution" class="container">
+  	<option>Please select the institution where you work</option>
+    <option value = "Metcalfe Street">Metcalfe Street</option>
+    <option value = "Richmond Farm">Richmond Farm</option>
+    <option value = "General Penitentiary">General Penitentiary</option>
+    <option value = "Prison Oval">Prison Oval</option>
+    <option value = "South Camp">South Camp (Girls)</option>
+    <option value = "Horizon Remand Centre">Horizon Remand Centre</option>
+    <option value = "Fort Augusta(South Camp">Fort Augusta</option>
+    
+  </select>
+</div>
+</div>
 	<div class="control container" style="padding-top: 10px;">
   		<button class="button is-info is-outlined" name="submit">Submit</button>
 	</div>

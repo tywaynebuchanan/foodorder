@@ -8,47 +8,26 @@
 mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 	
 
-						$firstname = $_POST['firstname'];
-						$lastname = $_POST['lastname'];
-						$int_name = $_POST['institutions'];
-						$answer1 = $_POST['answer1'];
-						$answer2 = $_POST['answer2'];
-						$answer3 = $_POST['answer3'];
+						$firstname=$_POST['firstname'];
+						$lastname=$_POST['lastname'];
+						$intname=$_POST['institution'];
+						$answer1=$_POST['answer1'];
+						$answer2=$_POST['answer2'];
+						$answer3=$_POST['answer3'];
 						
-						$usercheck = $firstname;
-
-						$usercheck = "SELECT * FROM tblOrder1 WHERE Firstname = $usercheck;";
-						$resultusercheck = mysqli_query($conn,$usercheck);
-
-						$yes = count($resultusercheck);
-						if ($yes>0){
-
-							header('Location:../error.php');
-							echo "You have placed your order already";
-
-						}	
-
-						else{				
+									
 					
-					$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Institution,Meat,Staple,Side) values ('$firstname','$lastname','$int_name','$answer1','$answer2','$answer3');";
-
-					if(mysqli_query($conn,$sql1))
-					{
-						echo "Your lunch order was placed. Thank you";
-					}
-
-					else
-					{
-						echo "Failed to enter data";
-					}
-
-					mysqli_close($conn);
-
-					
-				}
-
-					
+					$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
 }
+					
+
+				
+
+					
+				
+
+					
+
 	
 
 	
@@ -69,7 +48,18 @@ mysqli_select_db($conn,$mysql_db) or die('Not such database present');
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-     
+     <?php if(mysqli_query($conn,$sql1))
+					{
+						echo "Your lunch order was placed. Thank you";
+						header('Location: ../index.php');
+					}
+
+					else
+					{
+						echo "Failed to enter data";
+					}
+						mysqli_close($conn);
+				?>
       </h1>
       <h2 class="subtitle">
        
