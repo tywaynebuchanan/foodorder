@@ -127,22 +127,7 @@ require 'config.php';
 		</div>
 	</div>
 
-	<div class="container" style="padding-top: 10px;">
 	
-		<label class="label"> Please select institution</label>
-	  <label class="radio">
-
-	   <div class="select is-rounded">
-  		<select>
-		    <option>Please select the institution you work at</option>
-		    <?php 
-		    while ($row1 = $resultSet->fetch_assoc())
-		    {
-		    	$int_name = $row1['Institution'];
-		    	echo "<option name = "institutions" value = '$int_name'>$int_name</option>";
-		    }?>
-  		</select>
-	</div>
 
 	</div>
 	<div class="control container" style="padding-top:10px;">
