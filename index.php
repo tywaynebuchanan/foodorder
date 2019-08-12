@@ -41,7 +41,7 @@ require 'config.php';
 					
 
 
-			
+			mysqli_close($conn);
 
 
 
@@ -54,46 +54,7 @@ require 'config.php';
 <div class="container is-widescreen">
   
 </div>
-<?php
 
-if()	
-
-		
-if (isset($_POST['submit'])){
-						$firstname = $_POST['firstname'];
-						$lastname = $_POST['lastname'];
-						$answer1 = $_POST['answer1'];
-						$answer2 = $_POST['answer2'];
-						$answer3 = $_POST['answer3'];
-
-						$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Meat,Rice,Side) values ('$firstname','$lastname','$answer1','$answer2','$answer3');";
-
-					if(mysqli_query($conn,$sql1))
-					{
-						echo "Record added Successfully";
-					}
-
-					else
-					{
-						echo "Failed to enter data";
-					}
-
-					mysqli_close($conn);
-}
-						
-					
-					
-
-
-
-		
-
-						
-
-	
-	
-	
-?>
 
 <div>
 	<form action="index.php" method="POST">
@@ -153,6 +114,40 @@ if (isset($_POST['submit'])){
 	</div>
 
 </form>
+</div>
+<div class="container">
+<?php
+	
+
+	if (isset($_POST['submit'])){
+
+		$conn = mysqli_connect($db_host,$db_user,$db_password) or die ('The username or password is incorrect');
+mysqli_select_db($conn,$mysql_db) or die('Not such database present');
+	
+						$firstname = $_POST['firstname'];
+						$lastname = $_POST['lastname'];
+						$answer1 = $_POST['answer1'];
+						$answer2 = $_POST['answer2'];
+						$answer3 = $_POST['answer3'];
+
+						$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Meat,Rice,Side) values ('$firstname','$lastname','$answer1','$answer2','$answer3');";
+
+					if(mysqli_query($conn,$sql1))
+					{
+						echo "Your lunch order was placed. Thank you";
+					}
+
+					else
+					{
+						echo "Failed to enter data";
+					}
+
+					mysqli_close($conn);
+}
+	
+
+	
+?>
 	
 </div>
 <script
