@@ -10,7 +10,7 @@ mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 
 						$firstname = $_POST['firstname'];
 						$lastname = $_POST['lastname'];
-						$answer4 = $_POST['answer4'];
+						$int_name = $_POST['institutions'];
 						$answer1 = $_POST['answer1'];
 						$answer2 = $_POST['answer2'];
 						$answer3 = $_POST['answer3'];
@@ -30,7 +30,7 @@ mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 
 						else{				
 					
-					$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Institution,Meat,Staple,Side) values ('$firstname','$lastname','$answer4','$answer1','$answer2','$answer3');";
+					$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Institution,Meat,Staple,Side) values ('$firstname','$lastname','$int_name','$answer1','$answer2','$answer3');";
 
 					if(mysqli_query($conn,$sql1))
 					{

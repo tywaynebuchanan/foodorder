@@ -12,8 +12,59 @@ require 'config.php';
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
 </head>
 <body>
+
+
+<nav class="navbar container" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <img src="images/ordering.png" width="" height="">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu cont">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+</nav>
+
 
 
 <section class="hero is-info">
@@ -39,7 +90,8 @@ require 'config.php';
 						
 						} else { echo "0 results"; }
 					
-		
+						$sql1 = "SELECT Institution FROM tblInstitution;";
+						$resultSet = mysqli_query($conn,$sql1);
 
 
 
@@ -80,13 +132,17 @@ require 'config.php';
 		<label class="label"> Please select institution</label>
 	  <label class="radio">
 
-	    <input type="radio" name="answer4" value="Metcalfe Street" >
-	    Metcalfe Street
-	  </label>
-	  <label class="radio">
-	    <input type="radio" name="answer4" value="General Pen">
-	    General Pen (GP)
-	  </label>
+	   <div class="select is-rounded">
+  		<select name = "institutions">
+		    <option>Please select the institution you work at</option>
+		    <?php 
+		    while ($row1 = $resultSet->fetch_assoc())
+		    {
+		    	$int_name = $row1['Institution'];
+		    	echo "<option value = '$int_name'>$int_name</option>";
+		    }?>
+  		</select>
+	</div>
 
 	</div>
 	<div class="control container" style="padding-top:10px;">
