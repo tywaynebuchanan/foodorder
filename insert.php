@@ -98,7 +98,7 @@ if (isset($_POST['submit'])){
 <footer class="footer" >
   <div class="content has-text-centered is-info">
     <p>
-      <strong>Lunch Ordering System</strong> by Tywayne Buchanan </a>
+      <strong>Lunch Ordering System</strong> by LADs </a>
 
     </p>
   </div>
