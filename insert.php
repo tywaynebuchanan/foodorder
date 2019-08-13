@@ -1,37 +1,20 @@
-<?php
-	
-	require 'config.php';
+<?php require 'config.php';
 
-	if (isset($_POST['submit'])){
+if (isset($_POST['submit'])){
 
-		$conn = mysqli_connect($db_host,$db_user,$db_password) or die ('The username or password is incorrect');
-mysqli_select_db($conn,$mysql_db) or die('Not such database present');
+	$conn = mysqli_connect($db_host,$db_user,$db_password) or die ('The username or password is incorrect');
+	mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 	
 
-						$firstname=$_POST['firstname'];
-						$lastname=$_POST['lastname'];
-						$intname=$_POST['institution'];
-						$answer1=$_POST['answer1'];
-						$answer2=$_POST['answer2'];
-						$answer3=$_POST['answer3'];
+	$firstname=$_POST['firstname'];
+	$lastname=$_POST['lastname'];
+	$intname = $_POST['institution'];
+	$answer1 = $_POST['answer1'];
+	$answer2 = $_POST['answer2'];
+	$answer3 = $_POST['answer3'];
 						
-									
-					
-					$sql1 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
-}
-					
-
-				
-
-					
-				
-
-					
-
-	
-
-	
-?>
+	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
+}?>
 
 <!DOCTYPE html>
 <html>
@@ -43,34 +26,48 @@ mysqli_select_db($conn,$mysql_db) or die('Not such database present');
 </head>
 <body>
 
+<nav class="navbar container" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <img src="images/ordering.png" width="" height="">
+    </a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu cont">
+    <div class="navbar-start">
+      <a class="navbar-item" href="index.php">
+        Home
+      </a>
+      <a class="navbar-item">
+       About Us
+      </a>
+</nav>
+
+
 
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-     <?php if(mysqli_query($conn,$sql1))
-					{
-						echo "Your lunch order was placed. Thank you";
-						header('Location: ../index.php');
+     <?php if(mysqli_query($conn,$sql2))
+		{
+			echo $firstname." ".$lastname." ";
+			echo "Your lunch order was placed";
+		}else{
+				echo "Failed to enter data";
 					}
-
-					else
-					{
-						echo "Failed to enter data";
-					}
-						mysqli_close($conn);
-				?>
+?>
       </h1>
       <h2 class="subtitle">
-       
-
-      </h2>
+     </h2>
     </div>
   </div>
 </section>
-
-
-<div class="container">
+<div class="container" style="padding-top: 10px;">
 	<div class="buttons are-medium is-outlined is-info">
   <a class="button" href="index.php">Place order</a>
   
