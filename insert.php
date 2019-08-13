@@ -31,7 +31,7 @@ if (isset($_POST['submit'])){
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
         <img src="images/ordering.png" width="50" height="50">
-        DCS Lunch Ordering System
+        Lunch Ordering System
       </a>
       <span class="navbar-burger burger" data-target="navMenu">
         <span></span>
