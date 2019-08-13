@@ -17,7 +17,7 @@
 <div class="container">
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
-        <img src="images/ordering.png" width="50" height="50">
+        <img src="images/ordering.png" width="25" height="25">
         Lunch Ordering System
       </a>
       <span class="navbar-burger burger" data-target="navMenu">
@@ -29,6 +29,7 @@
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
         <a href="#" class="navbar-item is-active">Home</a>
+        <a href="vieworders.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         
       </div>
