@@ -14,7 +14,7 @@
 <body>
 
 <nav class="navbar is-info">
-<div class="container">
+<div class="">
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
         <img src="images/ordering.png" width="25" height="25">
