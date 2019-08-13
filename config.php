@@ -1,8 +1,6 @@
 <?php
 $conn_error = "Could not connect";
-
 $db_host = 'remotemysql.com';
-
 $db_user ='6MSDbfszCd';
 $db_password ='Hcb9hnZTph';
 
