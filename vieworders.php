@@ -14,7 +14,7 @@
 <body>
 
 <nav class="navbar is-info">
-<div class="">
+<div class="container">
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
         <img src="images/ordering.png" width="25" height="25">
@@ -28,7 +28,7 @@
     </div>
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
-        <a href="#" class="navbar-item is-active">Home</a>
+        <a href="index.php" class="navbar-item is-active">Home</a>
         <a href="#" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         
@@ -53,8 +53,8 @@
 <div style="padding-top: 10px;">
  <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
   <thead>
-    <tr>
-     
+     <caption><strong>MetCalfe Street</strong></caption>
+     <tr>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Institution</th>
@@ -68,7 +68,81 @@
 <tbody>
      <?php 
 
-			$qryView ="SELECT * FROM tblOrder1;";
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'MetCalfe Street' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "0 resuls";}
+
+			
+?>
+</tbody>
+</table>
+
+</div>
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>Richmond Farm</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Richmond Farm' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "0 resuls";}
+
+			
+?>
+</tbody>
+</table>
+
+</div>
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>General Penitentiary</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'General Penitentiary' ORDER BY OrderTime ASC;";
 			$result = mysqli_query($conn,$qryView);
 			$resultCheck = mysqli_num_rows($result);
 			 if ($resultCheck > 0){
@@ -88,6 +162,42 @@
 </div>
 
 
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>Prison Oval</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Prison Oval' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "0 resuls";}
+
+			
+?>
+</tbody>
+</table>
+
+</div>
 
 
 

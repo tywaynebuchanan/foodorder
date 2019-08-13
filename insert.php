@@ -12,9 +12,28 @@ if (isset($_POST['submit'])){
 	$answer1 = $_POST['answer1'];
 	$answer2 = $_POST['answer2'];
 	$answer3 = $_POST['answer3'];
+
+
+  $usercheck = $firstname;
+
+            $usercheck = "SELECT * FROM tblOrder1 WHERE Firstname = $usercheck;";
+            $resultusercheck = mysqli_query($conn,$usercheck);
+
+            $yes = count($resultusercheck);
+            if ($yes>0){
+
+              header('Location:../error.php');
+              echo "You have placed your order already";
+
+            } 
+
+            else{
 						
 	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
-}?>
+}
+
+}
+?>
 
 <!DOCTYPE html>
 <html>
