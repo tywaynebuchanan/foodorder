@@ -26,26 +26,39 @@ if (isset($_POST['submit'])){
 </head>
 <body>
 
-<nav class="navbar container" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="">
-      <img src="images/ordering.png" width="" height="">
-    </a>
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div id="navbarBasicExample" class="navbar-menu cont">
-    <div class="navbar-start">
-      <a class="navbar-item" href="index.php">
-        Home
+<nav class="navbar is-info">
+<div class="container">
+<div class="navbar-brand">
+      <a class="navbar-item" href="index.php" style="font-weight:bold;">
+        <img src="images/ordering.png" width="50" height="50">
+        DCS Lunch Ordering System
       </a>
-      <a class="navbar-item">
-       About Us
-      </a>
+      <span class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+<div id="navMenu" class="navbar-menu">
+<div class="navbar-end">
+        <a href="index.php" class="navbar-item is-active">Home</a>
+        <a href="#" class="navbar-item">About Us</a>
+       
+      </div>
+</div>
+</div>
 </nav>
+<script type="text/javascript">
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+    </script>
 
 
 
