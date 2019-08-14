@@ -1,3 +1,6 @@
+<?php require 'authen.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
+	<script src="https://kit.fontawesome.com/aa5a4845ec.js"></script>
 </head>
 <body>
 
@@ -27,7 +31,6 @@
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
         <a href="#" class="navbar-item is-active">Home</a>
-        <a href="vieworders.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         
       </div>
@@ -52,37 +55,45 @@ function AvoidSpace(event) {
 }
 </script>
 
-
-<div class="container" style="padding-top: 10px;">
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Login
-    </button>
-  </p>
-</div>
-</div>
-</div>
-
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <form action="" method = "post" class="box">
+            <div class="field">
+            	<label for="" class="label">Enter Login </label>
+              <label for="" class="label">ID Number </label>
+              <div class="control has-icons-left">
+                <input type="text" name = "username" placeholder="Enter your Username" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user-circle"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input type="password" name = "password" placeholder="" class="input" required>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <button type="submit" class="button is-success" name = "submit">
+                Login
+              </button>
+              
+            </div>
+          </form>
+       <span><?php echo $error; ?></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </body>
 
 <div style="padding-top: 10px;">
@@ -93,6 +104,7 @@ function AvoidSpace(event) {
   </div>
 </footer>
 <div>
+</div>
 
 </html>
 
