@@ -19,9 +19,9 @@ if (isset($_POST['submit'])){
             $usercheck = "SELECT * FROM tblOrder1 WHERE Firstname = $usercheck;";
             $resultusercheck = mysqli_query($conn,$usercheck);
 
-            $yes = count($resultusercheck);
-            echo $resultusercheck;
-            if ($yes>0){
+           
+           
+            if (mysqli_num_rows($resultusercheck)==0){
 
               header('Location:../error.php');
               echo "You have placed your order already";
