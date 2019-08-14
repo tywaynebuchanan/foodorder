@@ -1,5 +1,5 @@
 <?php require 'config.php';
-
+session_start();
 $error = "";
 
 If(isset($_POST['submit'])){
@@ -17,12 +17,13 @@ If(isset($_POST['submit'])){
 			$result = mysqli_query($conn,$qry);
 			$resultCheck = mysqli_num_rows($result);
 
-			if($resultCheck == 1){
+			if($resultCheck ==1){
+				$_SESSION['Name'] = $_POST['username'];
 				header("Location:orderpage.php");
 			}
 			else
 			{
-				$error = "User name or Password is Invalid";
+				$error= "User name or Password is Invalid";
 			}
 			mysqli_close($conn);
 		}

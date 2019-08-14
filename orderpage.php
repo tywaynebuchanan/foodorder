@@ -1,4 +1,9 @@
-<?php require 'config.php';?>
+<?php require 'config.php';
+session_start();
+
+
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,7 +36,22 @@
         <a href="#" class="navbar-item is-active">Home</a>
         <a href="vieworders.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
-        
+        <a href="#" class="navbar-item"><?php            
+if (isset($_SESSION['Name']))
+{
+ echo 'Welcome '. $_SESSION['Name'];
+ 
+}
+ else
+ {
+ 		header('Location:index.php');
+ }
+
+?> 
+
+<a href="logout.php?logout" class="navbar-item">Logout</a>
+
+                     
       </div>
 </div>
 </div>
