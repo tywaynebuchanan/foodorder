@@ -191,6 +191,7 @@
 
 					}
 					else {echo "0 resuls";}
+					mysqli_close($conn);
 
 			
 ?>
