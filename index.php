@@ -180,9 +180,7 @@ function AvoidSpace(event) {
 <footer class="footer" >
   <div class="content has-text-centered is-info">
     <p>
-      <strong>Lunch Ordering System</strong> by LADs </a>
-
-    </p>
+      <strong>Lunch Ordering System</strong> by LADs</p>
   </div>
 </footer>
 <div>
