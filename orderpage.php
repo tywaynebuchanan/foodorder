@@ -98,8 +98,7 @@ function AvoidSpace(event) {
 						
 					} else { echo "0 results"; }
 					
-						$qryInt = "SELECT Institution FROM tblInstitution;";
-						$resultSet = mysqli_query($conn,$qryInt);
+						
 						mysqli_close($conn);
 ?>
 
@@ -115,20 +114,7 @@ function AvoidSpace(event) {
 <div>
 	<form autocomplete="off" action="insert.php" method="POST">
 		<div style="padding-top: 10px;">
-			<div class="container is-widescreen">
-					<label class="label"> First Name </label>
-					<input id = "FirstName" class="input is-rounded" type="text" name="firstname"  placeholder="Place your first name here" required onkeypress="return AvoidSpace(event)">
-			</div>
-		</div>
-			<div style="padding-top: 10px;">
-				<div class="container is-widescreen">
-					<label class="label"> Last Name </label>
-					<input  id = "LastName" class="input is-rounded" type="text" name="lastname" placeholder="Place your last name here" required onkeypress="return AvoidSpace(event)">
-			</div>
-		</div>
-	</div>
-
-	<div class="control container" style="padding-top:10px;">
+		<div class="control container" style="padding-top:10px;">
 	  <label class="label"> Please select meat</label>
 	  	<label class="radio">
 	    <input type="radio" name="answer1" value="Chicken" required>
@@ -167,22 +153,9 @@ function AvoidSpace(event) {
 	   Vegetables
 	  </label>
 	</div>
-<div class="container" style="padding-top: 10px;">
-	<div class="select is-rounded">
-	  <select name = "institution" class="container" required>
-	  	<option selected disabled>Please select the institution where you work</option>
-	    <option value = "Metcalfe Street" >Metcalfe Street</option>
-	    <option value = "Richmond Farm" >Richmond Farm</option>
-	    <option value = "General Penitentiary" >General Penitentiary</option>
-	    <option value = "Prison Oval" >Prison Oval</option>
-	    <option value = "South Camp" >South Camp (Girls)</option>
-	    <option value = "Horizon Remand Centre" >Horizon Remand Centre</option>
-	    <option value = "Fort Augusta(South Camp" >Fort Augusta</option>
-	   </select>
-	</div>
-</div>
+
 	<div class="control container" style="padding-top: 10px;">
-  		<button onclick="myFunction()" class="button is-info is-outlined" name="submit">Submit</button>
+  		<button onclick="myFunction()" class="button is-info is-outlined" name="submit">Place Order</button>
 	</div>
 </form>
 </div>

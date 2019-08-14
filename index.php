@@ -65,7 +65,7 @@ function AvoidSpace(event) {
             	<label for="" class="label">Enter Login </label>
               <label for="" class="label">ID Number </label>
               <div class="control has-icons-left">
-                <input type="text" name = "username" placeholder="Enter your Username" class="input" required>
+                <input type="email" name = "username" placeholder="Enter your Username" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fas fa-user-circle"></i>
                 </span>

@@ -1,24 +1,10 @@
 <?php require 'config.php';
+session_start();
 
 if (isset($_POST['submit'])){
 
-	$firstname=$_POST['firstname'];
-	$lastname=$_POST['lastname'];
-	$intname = $_POST['institution'];
-	$answer1 = $_POST['answer1'];
-	$answer2 = $_POST['answer2'];
-	$answer3 = $_POST['answer3'];
+	
 
-  $qrycheck = ("SELECT * FROM tblOrder1 WHERE Firstname = '$firstname';");
-  $results = mysqli_query($conn,$qrycheck);
-  if (mysqli_num_rows($qrycheck) > 0){
-
-    echo "You already placed your order";
-
-  }else {
-
- 	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
-}
 }
 
 ?>
@@ -77,14 +63,7 @@ if (isset($_POST['submit'])){
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-     <?php if(mysqli_query($conn,$sql2))
-		{
-			echo $firstname." ".$lastname." ";
-			echo "Your lunch order was placed";
-		}else{
-				echo "Failed to enter data";
-					}
-?>
+   Your order was placed
       </h1>
       <h2 class="subtitle">
      </h2>
