@@ -46,7 +46,13 @@
           nav.classList.toggle('is-active');
         });
       })();
-    </script>
+
+
+function AvoidSpace(event) {
+    var k = event ? event.which : window.event.keyCode;
+    if (k == 32) return false;
+}
+</script>
 
 
     
@@ -87,17 +93,17 @@
 
 
 <div>
-	<form action="insert.php" method="POST">
+	<form autocomplete="off" action="insert.php" method="POST">
 		<div style="padding-top: 10px;">
 			<div class="container is-widescreen">
 					<label class="label"> First Name </label>
-					<input class="input is-rounded" type="text" name="firstname"  placeholder="Place your first name here" required>
+					<input id = "FirstName" class="input is-rounded" type="text" name="firstname"  placeholder="Place your first name here" required onkeypress="return AvoidSpace(event)">
 			</div>
 		</div>
 			<div style="padding-top: 10px;">
 				<div class="container is-widescreen">
 					<label class="label"> Last Name </label>
-					<input class="input is-rounded" type="text" name="lastname" placeholder="Place your last name here" required >
+					<input  id = "LastName" class="input is-rounded" type="text" name="lastname" placeholder="Place your last name here" required onkeypress="return AvoidSpace(event)">
 			</div>
 		</div>
 	</div>
@@ -161,6 +167,12 @@
 </form>
 </div>
 
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 
 </body>
 
