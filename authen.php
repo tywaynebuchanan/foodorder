@@ -13,12 +13,12 @@ If(isset($_POST['submit'])){
 
 			$user = $_POST['username'];
 			$password = $_POST['password'];
-			$qry = "SELECT * FROM tblusers WHERE Name = '$user' AND Password ='$password';";
+			$qry = "SELECT * FROM tblusers WHERE Email = '$user' AND Password ='$password';";
 			$result = mysqli_query($conn,$qry);
 			$resultCheck = mysqli_num_rows($result);
 
 			if($resultCheck ==1){
-				$_SESSION['Name'] = $_POST['username'];
+				$_SESSION['Email'] = $_POST['username'];
 				header("Location:orderpage.php");
 			}
 			else

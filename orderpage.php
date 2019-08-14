@@ -37,9 +37,9 @@ session_start();
         <a href="vieworders.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         <a href="#" class="navbar-item"><?php            
-if (isset($_SESSION['Name']))
+if (isset($_SESSION['Email']))
 {
- echo 'Welcome '. $_SESSION['Name'];
+ echo 'Welcome '. $_SESSION['Email'];
  
 }
  else
