@@ -206,7 +206,7 @@
 <div style="padding-top: 10px;">
  <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
   <thead>
-     <caption><strong>Prison Oval</strong></caption>
+     <caption><strong>South Camp</strong></caption>
      <tr>
       <th>First Name</th>
       <th>Last Name</th>
@@ -244,7 +244,7 @@
 <div style="padding-top: 10px;">
  <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
   <thead>
-     <caption><strong>Prison Oval</strong></caption>
+     <caption><strong>Horizon Remand Center</strong></caption>
      <tr>
       <th>First Name</th>
       <th>Last Name</th>
@@ -282,7 +282,7 @@
 <div style="padding-top: 10px;">
  <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
   <thead>
-     <caption><strong>Prison Oval</strong></caption>
+     <caption><strong>Fort Augusta (South Camp)</strong></caption>
      <tr>
       <th>First Name</th>
       <th>Last Name</th>
@@ -297,7 +297,7 @@
 <tbody>
      <?php 
 
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Fort Augusta' ORDER BY OrderTime ASC;";
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Fort Augusta(South Camp' ORDER BY OrderTime ASC;";
 			$result = mysqli_query($conn,$qryView);
 			$resultCheck = mysqli_num_rows($result);
 			 if ($resultCheck > 0){

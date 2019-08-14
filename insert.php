@@ -2,10 +2,6 @@
 
 if (isset($_POST['submit'])){
 
-	$conn = mysqli_connect($db_host,$db_user,$db_password) or die ('The username or password is incorrect');
-	mysqli_select_db($conn,$mysql_db) or die('Not such database present');
-	
-
 	$firstname=$_POST['firstname'];
 	$lastname=$_POST['lastname'];
 	$intname = $_POST['institution'];
@@ -13,13 +9,17 @@ if (isset($_POST['submit'])){
 	$answer2 = $_POST['answer2'];
 	$answer3 = $_POST['answer3'];
 
+  $qrycheck = ("SELECT * FROM tblOrder1 WHERE Firstname = '$firstname';");
+  $results = mysqli_query($conn,$qrycheck);
+  if (mysqli_num_rows($qrycheck) > 0){
 
+    echo "You already placed your order";
 
-         
-						
-	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
+  }else {
+
+ 	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
 }
-
+}
 
 ?>
 
