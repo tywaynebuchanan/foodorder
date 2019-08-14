@@ -78,7 +78,7 @@
 					} 
 
 					}
-					else {echo "0 resuls";}
+					else {echo "<tr><td> 0 results </td></tr>";}
 
 			
 ?>
@@ -115,7 +115,7 @@
 					} 
 
 					}
-					else {echo "0 resuls";}
+					else {echo "<tr><td> 0 results </td></tr>";}
 
 			
 ?>
@@ -152,7 +152,8 @@
 					} 
 
 					}
-					else {echo "0 resuls";}
+					else {echo "<tr><td> 0 results </td></tr>";}
+
 
 			
 ?>
@@ -190,8 +191,9 @@
 					} 
 
 					}
-					else {echo "0 resuls";}
-					mysqli_close($conn);
+					else {echo "<tr><td> 0 results </td></tr>";}
+
+					
 
 			
 ?>
@@ -200,6 +202,121 @@
 
 </div>
 
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>Prison Oval</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'South Camp' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "<tr><td> 0 results </td></tr>";}
+
+					
+			
+?>
+</tbody>
+</table>
+
+</div>
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>Prison Oval</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Horizon Remand Centre' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "<tr><td> 0 results </td></tr>";}
+
+					
+			
+?>
+</tbody>
+</table>
+
+</div>
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>Prison Oval</strong></caption>
+     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Institution</th>
+      <th>Meat</th>
+      <th>Staple</th>
+      <th>Side</th>
+ 
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Fort Augusta' ORDER BY OrderTime ASC;";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
+						
+					} 
+
+					}
+					else {echo "<tr><td> 0 results </td></tr>";}
+
+					mysqli_close($conn);
+
+			
+?>
+</tbody>
+</table>
+
+</div>
 
 
 </body>

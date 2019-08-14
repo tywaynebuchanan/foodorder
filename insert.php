@@ -14,26 +14,13 @@ if (isset($_POST['submit'])){
 	$answer3 = $_POST['answer3'];
 
 
-  $usercheck = $firstname;
 
-            $usercheck = "SELECT * FROM tblOrder1 WHERE Firstname = $usercheck;";
-            $resultusercheck = mysqli_query($conn,$usercheck);
-
-           
-           
-            if (mysqli_num_rows($resultusercheck)==0){
-
-              header('Location:../error.php');
-              echo "You have placed your order already";
-
-            } 
-
-            else{
+         
 						
 	$sql2 = "INSERT into tblOrder1 (Firstname,Lastname,Institution, Meat,Staple,Side) values ('$firstname','$lastname','$intname','$answer1','$answer2','$answer3');";
 }
 
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +51,7 @@ if (isset($_POST['submit'])){
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
         <a href="index.php" class="navbar-item is-active">Home</a>
+        <a href="vieworders.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
        
       </div>
@@ -109,11 +97,21 @@ if (isset($_POST['submit'])){
 </div>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<section class="section">
+    <div class="container">
+      <section class="section">
+    <div class="container">
+      <h1 class="title"></h1>
+      <h2 class="subtitle">
+        
+      </h2>
+    </div>
+  </section>
+    </div>
+  </section>
+
+
+
 <?php mysqli_close($conn); ?>
 </body>
 <div style="padding-top: 10px;">
