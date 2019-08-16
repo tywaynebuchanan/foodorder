@@ -104,42 +104,25 @@ function AvoidSpace(event) {
 
 </div>
 
-<div  class="container" style="padding-top: 10px;">
-<nav class="level-left">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Your Lunch Order</p>
-      <p class="title">
-      	
-			<?php 
-			
-			$res = $_SESSION['Email'];
-			$qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res'";
-			$resultorder = mysqli_query($conn,$qryorder);
-			$resultCheckorder = mysqli_num_rows($resultorder);
-			 if ($resultCheckorder > 0){
-				while($row1 = $resultorder->fetch_assoc()) {
-					echo $row1["Meat"]." with ".$row1["Staple"]." and ".$row1["Side"];
-
-					}
-						
-					} else { echo "You have not placed a lunch order"; }
-					
-					mysqli_close($conn);
-?>
 
 
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 
-      </p>
-     
-    </div>
-  </div>
-</nav>
-</div>
-
-<div>
+<div class="container" style="padding-top: 10px;">
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification ">
+          <p class="title">Please Select Your Order</p>
+          
+		<div class="content">	
+	<div>
 	<form autocomplete="off" action="insert.php" method="POST">
-		<div style="padding-top: 10px;">
+		
 		<div class="control container" style="padding-top:10px;">
 	  <label class="label"> Please select meat</label>
 	  	<label class="radio">
@@ -180,18 +163,83 @@ function AvoidSpace(event) {
 	  </label>
 	</div>
 
-	<div class="control container" style="padding-top: 10px;">
+	
+</form>
+</div>
+</div>
+
+   </article>
+        <article class="tile is-child notification">
+          <p class="title">Select Payment Method</p>
+          <form autocomplete="off" action="insert.php" method="POST">
+		<div>
+		<div class="control container" style="padding-top:10px;">
+	  	<label class="radio">
+	    <input type="radio" name="payment" value="Credit Card" required>
+	    Credit Card 
+	    <img src="images/cc-visa-brands.svg" width="25" height="25">
+	  </label>
+	  <label class="radio">
+
+	    <input type="radio" name="payment" value="Cash" required>
+	    
+	    Cash (Cash on Delivery)
+	    <img src="images/money-bill-alt-regular.svg" width="25" height="25">
+
+	  </label>
+	  <label class="radio">
+	    <input type="radio" name="payment" value="Salary Deduction" required>
+	    Salary Deduction
+	    <img src="images/chart-line-solid.svg" width="25" height="25">
+	  </label>
+	</div>
+	
+	
+        </article>
+      </div>
+      
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification">
+        <p class="title">All Done</p>
+        <p class="subtitle">Please select the button below to place your order</p>
+        <div class="content">
+         <div class="control container" style="padding-top: 10px;">
   		<button onclick="myFunction()" class="button is-info is-outlined" name="submit">Place Order</button>
 	</div>
-</form>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-info">
+      <div class="content">
+        <p class="title">Your Lunch Order</p>
+        <div class="title">
+         <?php 
+			
+			$res = $_SESSION['Email'];
+			$qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res'";
+			$resultorder = mysqli_query($conn,$qryorder);
+			$resultCheckorder = mysqli_num_rows($resultorder);
+			 if ($resultCheckorder > 0){
+				while($row1 = $resultorder->fetch_assoc()) {
+					echo $row1["Meat"]." with ".$row1["Staple"]." and ".$row1["Side"];
+
+					}
+						
+					} else { echo "You have not placed a lunch order"; }
+					
+					mysqli_close($conn);
+?>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
 </div>
 
 
-
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
 
 </body>
 

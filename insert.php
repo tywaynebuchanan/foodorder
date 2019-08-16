@@ -7,10 +7,9 @@ $success = "";
 if (isset($_POST['submit'])){
 
 
-    $answer = $_POST['answer1'];
-    $answer1 = $_POST['answer2'];
-    $answer2 = $_POST['answer3'];
-
+    $answer = htmlentities($_POST['answer1']);
+    $answer1 = htmlentities($_POST['answer2']);
+    $answer2 = htmlentities($_POST['answer3']);
 
 
 	$sql = "INSERT INTO tblOrders (Email1,Meat,Staple,Side) VALUES ('$id','$answer','$answer1','$answer2')";
