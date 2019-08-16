@@ -104,7 +104,7 @@ function AvoidSpace(event) {
 
 </div>
 
-<div style="padding-top: 10px;">
+<div  class="container" style="padding-top: 10px;">
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
@@ -121,24 +121,17 @@ function AvoidSpace(event) {
 				while($row1 = $resultorder->fetch_assoc()) {
 					echo $row1["Meat"]." with ".$row1["Staple"]." and ".$row1["Side"];
 
-					;
 					}
 						
-					} else { echo "You have not place a lunch order"; }
+					} else { echo "You have not placed a lunch order"; }
 					
-						
-						mysqli_close($conn);
+					mysqli_close($conn);
 ?>
 
 
 
       </p>
-      <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Followers</p>
-      <p class="title">456K</p>
-    </div>
-  </div>
+     
     </div>
   </div>
 </nav>
