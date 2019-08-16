@@ -105,7 +105,7 @@ function AvoidSpace(event) {
 </div>
 
 <div  class="container" style="padding-top: 10px;">
-<nav class="level is-mobile">
+<nav class="level-left">
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Your Lunch Order</p>
