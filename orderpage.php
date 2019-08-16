@@ -47,6 +47,10 @@ if (isset($_SESSION['Email']))
  		header('Location:index.php');
  }
 
+
+
+
+
 ?> 
 
 <a href="logout.php?logout" class="navbar-item">Logout</a>
@@ -74,8 +78,7 @@ function AvoidSpace(event) {
 }
 </script>
 
-
-    
+     
 
 <section class="hero is-info">
   <div class="hero-body">

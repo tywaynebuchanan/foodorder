@@ -1,11 +1,20 @@
 <?php require 'config.php';
 session_start();
 
+$id = $_SESSION['Email'];
+$error = "";
+$success = "";
 if (isset($_POST['submit'])){
 
-	
 
-}
+    $answer = $_POST['answer1'];
+    $answer1 = $_POST['answer2'];
+    $answer2 = $_POST['answer3'];
+
+
+
+	$sql = "INSERT INTO tblOrders (Email1,Meat,Staple,Side) VALUES ('$id','$answer','$answer1','$answer2')";
+
 
 ?>
 
@@ -63,7 +72,16 @@ if (isset($_POST['submit'])){
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-   Your order was placed
+        <?php 
+   if ($conn->query($sql) === TRUE) {
+    echo $success = "Your lunch order was placed";
+} else {
+     echo 
+     $error = "Your lunch order was not placed";
+}
+
+}
+?>
       </h1>
       <h2 class="subtitle">
      </h2>
@@ -72,7 +90,7 @@ if (isset($_POST['submit'])){
 </section>
 <div class="container" style="padding-top: 10px;">
 	<div class="buttons are-medium is-outlined is-info">
-  <a class="button" href="index.php">Place order</a>
+  <a class="button" href="orderpage.php">Place order</a>
   
 </div>
 </div>

@@ -13,7 +13,7 @@ If(isset($_POST['submit'])){
 
 			$user = $_POST['username'];
 			$password = $_POST['password'];
-			$qry = "SELECT * FROM tblusers WHERE Email = '$user' AND Password ='$password';";
+			$qry = "SELECT * FROM tblUsers WHERE Email = '$user' AND Password ='$password';";
 			$result = mysqli_query($conn,$qry);
 			$resultCheck = mysqli_num_rows($result);
 
