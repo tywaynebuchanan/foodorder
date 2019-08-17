@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -319,6 +321,49 @@
 </div>
 
 
+<label>
+    <input class="checkbox" type="checkbox" onchange="toggleDisable(this);" id="check"/> 
+    enable
+</label>
+
+<!-- This is the field set -->
+<fieldset id="field_set" disabled="disabled">
+    <div class="field">
+  <p class="control">
+    <input  class="input" type="text" placeholder="Card Number">
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input  class="input" type="text" placeholder="Name on Card">
+    
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input   class="input" type="text" placeholder="MM/YY">
+    
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input   class="input" type="text" placeholder="CVC">
+    
+  </p>
+</div>
+
+</fieldset>
+
+
+<script>
+  
+function toggleDisable(checkbox) {
+    var toggle = document.getElementById("field_set");
+    $(toggle).prop($(checkbox).prop('checked'),'disabled');
+}
+
+
+</script>
 </body>
 
 <div style="padding-top: 10px;">

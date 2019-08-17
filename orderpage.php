@@ -12,6 +12,33 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+	<script>
+      (function() {
+        var burger = document.querySelector('.burger');
+        var nav = document.querySelector('#'+burger.dataset.target);
+
+        burger.addEventListener('click', function(){
+          burger.classList.toggle('is-active');
+          nav.classList.toggle('is-active');
+        });
+      })();
+
+
+	function AvoidSpace(event) {
+	    var k = event ? event.which : window.event.keyCode;
+	    if (k == 32) return false;
+	}
+
+	function toggleDisable(chkddl) {
+    var toggle = document.getElementById("field_set");
+    $(toggle).prop('enable', $(checkbox).prop('checked'));
+}
+		
+</script>
+
 </head>
 <body>
 
@@ -52,23 +79,7 @@ if (isset($_SESSION['Email']))
 </div>
 </div>
 </nav>
-<script type="text/javascript">
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
 
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-
-
-function AvoidSpace(event) {
-    var k = event ? event.which : window.event.keyCode;
-    if (k == 32) return false;
-}
-</script>
 
      
 
@@ -105,11 +116,6 @@ function AvoidSpace(event) {
 </div>
 
 
-
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
 
 <div class="container" style="padding-top: 10px;">
 <div class="tile is-ancestor">
@@ -171,11 +177,11 @@ function AvoidSpace(event) {
    </article>
         <article class="tile is-child notification">
           <p class="title">Select Payment Method</p>
-          <form autocomplete="off" action="insert.php" method="POST">
-		<div>
+          <form autocomplete="off" action="" method="">
+				<div>
 		<div class="control container" style="padding-top:10px;">
-	  	<label class="radio">
-	    <input type="radio" name="payment" value="Credit Card" required>
+	  	<label class="checkbox">
+	    <input type="checkbox" id = "chkddl" onclick="toggleDisable(this)" name="payment1" value="Credit Card" required>
 	    Credit Card 
 	    <img src="images/cc-visa-brands.svg" width="25" height="25">
 	  </label>
@@ -193,12 +199,41 @@ function AvoidSpace(event) {
 	    <img src="images/chart-line-solid.svg" width="25" height="25">
 	  </label>
 	</div>
-	
-	
-        </article>
+</form>
+	<fieldset id = "field_set">
+	<div class="field">
+  <p class="control">
+    <input  class="input" type="text" placeholder="Card Number">
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input  class="input" type="text" placeholder="Name on Card">
+    
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input   class="input" type="text" placeholder="MM/YY">
+    
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <input   class="input" type="text" placeholder="CVC">
+    
+  </p>
+</div>
+
+</fieldset>
+      </article>
       </div>
       
     </div>
+
+
+
+
     <div class="tile is-parent">
       <article class="tile is-child notification">
         <p class="title">All Done</p>
