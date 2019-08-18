@@ -35,6 +35,17 @@ session_start();
 	function toggleDisable(chkddl) {
     var toggle = document.getElementById("field_set");
     $(toggle).prop('enable', $(checkbox).prop('checked'));
+
+    function displaysom(x){
+    	if (x==0)
+    	{
+    		document.getElementById(chkddl).style.display = 'block';
+    		else
+    		document.getElementById(chkddl).style.display = 'none';	
+    	return;
+    	}
+
+    }
 }
 		
 </script>
@@ -170,65 +181,25 @@ if (isset($_SESSION['Email']))
 	</div>
 
 	
-</form>
+
 </div>
 </div>
 
    </article>
         <article class="tile is-child notification">
           <p class="title">Select Payment Method</p>
-          <form autocomplete="off" action="" method="">
-				<div>
-		<div class="control container" style="padding-top:10px;">
-	  	<label class="checkbox">
-	    <input type="checkbox" id = "chkddl" onclick="toggleDisable(this)" name="payment1" value="Credit Card" required>
-	    Credit Card 
-	    <img src="images/cc-visa-brands.svg" width="25" height="25">
-	  </label>
-	  <label class="radio">
-
-	    <input type="radio" name="payment" value="Cash" required>
-	    
-	    Cash (Cash on Delivery)
-	    <img src="images/money-bill-alt-regular.svg" width="25" height="25">
-
-	  </label>
-	  <label class="radio">
-	    <input type="radio" name="payment" value="Salary Deduction" required>
-	    Salary Deduction
-	    <img src="images/chart-line-solid.svg" width="25" height="25">
-	  </label>
-	</div>
-</form>
-	<fieldset id = "field_set">
-	<div class="field">
-  <p class="control">
-    <input  class="input" type="text" placeholder="Card Number">
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input  class="input" type="text" placeholder="Name on Card">
-    
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input   class="input" type="text" placeholder="MM/YY">
-    
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input   class="input" type="text" placeholder="CVC">
-    
-  </p>
+  		
+  		<div class="select is-rounded">
+  <select name = "payment">
+    <option selected="true" disabled="disabled">Select method of payment</option>
+    <option value="Cash">Cash </option>
+    <option value="Salary Deduction">Salary Deduction</option>
+  </select>
 </div>
 
-</fieldset>
       </article>
       </div>
-      
+   
     </div>
 
 
@@ -238,14 +209,18 @@ if (isset($_SESSION['Email']))
       <article class="tile is-child notification">
         <p class="title">All Done</p>
         <p class="subtitle">Please select the button below to place your order</p>
-        <div class="content">
+		 <div class="content">
          <div class="control container" style="padding-top: 10px;">
-  		<button onclick="myFunction()" class="button is-info is-outlined" name="submit">Place Order</button>
+  		<button class="button is-info is-outlined" name="submit">Place Order</button>
 	</div>
         </div>
+          </form> 
       </article>
     </div>
   </div>
+
+
+
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
       <div class="content">
@@ -260,6 +235,13 @@ if (isset($_SESSION['Email']))
 			 if ($resultCheckorder > 0){
 				while($row1 = $resultorder->fetch_assoc()) {
 					echo $row1["Meat"]." with ".$row1["Staple"]." and ".$row1["Side"];
+					echo "<br>";
+					echo " Payment Method: ".$row1['PaymentMethod'];
+
+					echo "<br>";
+					echo "<br>";
+
+
 
 					}
 						

@@ -10,9 +10,10 @@ if (isset($_POST['submit'])){
     $answer = htmlentities($_POST['answer1']);
     $answer1 = htmlentities($_POST['answer2']);
     $answer2 = htmlentities($_POST['answer3']);
+    $payment = htmlentities($_POST['payment']);
+   
 
-
-	$sql = "INSERT INTO tblOrders (Email1,Meat,Staple,Side) VALUES ('$id','$answer','$answer1','$answer2')";
+	$sql = "INSERT INTO tblOrders (Email1,Meat,Staple,Side,PaymentMethod) VALUES ('$id','$answer','$answer1','$answer2','$payment')";
 
 
 ?>
@@ -73,10 +74,12 @@ if (isset($_POST['submit'])){
       <h1 class="title">
         <?php 
    if ($conn->query($sql) === TRUE) {
-    echo $success = "Your lunch order was placed";
+    echo "<script> alert('Your lunch order was placed'); 
+    window.location ='orderpage.php'</script>";
 } else {
-     echo 
-     $error = "Your lunch order was not placed";
+     echo "<script> alert('Your lunch order was not placed'); 
+    window.location ='orderpage.php'</script>";
+     
 }
 
 }

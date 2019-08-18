@@ -28,16 +28,10 @@
         <span></span>
       </span>
     </div>
-<div id="navMenu" class="navbar-menu">
-<div class="navbar-end">
-        <a href="#" class="navbar-item is-active">Home</a>
-        <a href="#" class="navbar-item">About Us</a>
-        
-      </div>
-</div>
+
 </div>
 </nav>
-<script type="text/javascript">
+<script>
       (function() {
         var burger = document.querySelector('.burger');
         var nav = document.querySelector('#'+burger.dataset.target);
@@ -63,9 +57,9 @@ function AvoidSpace(event) {
           <form action="" method = "post" class="box">
             <div class="field">
             	<label for="" class="label">Enter Login </label>
-              <label for="" class="label">ID Number </label>
+              <label for="" class="label">Work ID Number </label>
               <div class="control has-icons-left">
-                <input type="email" name = "username" placeholder="Enter your Username" class="input" required>
+                <input type="email" name = "username" placeholder="Work ID Number" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fas fa-user-circle"></i>
                 </span>
