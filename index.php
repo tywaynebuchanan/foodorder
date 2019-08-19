@@ -12,6 +12,34 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
 	<script src="https://kit.fontawesome.com/aa5a4845ec.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+<script>
+      $(document).ready(function() {
+
+  // Check for click events on the navbar burger icon
+  $(".navbar-burger").click(function() {
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
+  });
+});
+
+
+function AvoidSpace(event) {
+    var k = event ? event.which : window.event.keyCode;
+    if (k == 32) return false;
+}
+</script>
+
+  
 </head>
 <body>
 
@@ -31,23 +59,7 @@
 
 </div>
 </nav>
-<script>
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
 
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-
-
-function AvoidSpace(event) {
-    var k = event ? event.which : window.event.keyCode;
-    if (k == 32) return false;
-}
-</script>
 
 <section class="hero is-info">
   <div class="hero-body">

@@ -13,47 +13,35 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	
 	<script>
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
+  $('.navbar-item').each(function(e) {
+    $(this).click(function(){
+      if($('#navbar-burger-id').hasClass('is-active')){
+        $('#navbar-burger-id').removeClass('is-active');
+        $('#navbar-menu-id').removeClass('is-active');
+      }
+    });
+  });
 
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
 
-
-	function AvoidSpace(event) {
-	    var k = event ? event.which : window.event.keyCode;
-	    if (k == 32) return false;
-	}
-
-	function toggleDisable(chkddl) {
-    var toggle = document.getElementById("field_set");
-    $(toggle).prop('enable', $(checkbox).prop('checked'));
-
-    function displaysom(x){
-    	if (x==0)
-    	{
-    		document.getElementById(chkddl).style.display = 'block';
-    		else
-    		document.getElementById(chkddl).style.display = 'none';	
-    	return;
-    	}
-
+  $('#navbar-burger-id').click(function () {
+    if($('#navbar-burger-id').hasClass('is-active')){
+      $('#navbar-burger-id').removeClass('is-active');
+      $('#navbar-menu-id').removeClass('is-active');
+    }else {
+      $('#navbar-burger-id').addClass('is-active');
+      $('#navbar-menu-id').addClass('is-active');
     }
-}
-		
+  });
+
 </script>
 
 </head>
 <body>
 
-<nav class="navbar is-info">
+<nav class="navbar is-info" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
 <div class="container">
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
@@ -68,8 +56,8 @@ session_start();
     </div>
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
-        <a href="#" class="navbar-item is-active">Home</a>
-        <a href="vieworders.php" class="navbar-item">View Orders</a>
+        <a href="#" class="navbar-item is-active is-info">Home</a>
+        <a href="orderpage1.php" class="navbar-item">View Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         <a href="#" class="navbar-item"><?php            
 if (isset($_SESSION['Email']))
@@ -81,7 +69,6 @@ if (isset($_SESSION['Email']))
  {
  		header('Location:index.php');
  }
-
 ?> 
 
 <a href="logout.php?logout" class="navbar-item">Logout</a>
@@ -90,9 +77,6 @@ if (isset($_SESSION['Email']))
 </div>
 </div>
 </nav>
-
-
-     
 
 <section class="hero is-info">
   <div class="hero-body">
@@ -209,7 +193,7 @@ if (isset($_SESSION['Email']))
       <article class="tile is-child notification">
         <p class="title">All Done</p>
         <p class="subtitle">Please select the button below to place your order</p>
-		 <div class="content">
+		        <div class="content">
          <div class="control container" style="padding-top: 10px;">
   		<button class="button is-info is-outlined" name="submit">Place Order</button>
 	</div>

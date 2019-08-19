@@ -75,10 +75,10 @@ if (isset($_POST['submit'])){
         <?php 
    if ($conn->query($sql) === TRUE) {
     echo "<script> alert('Your lunch order was placed'); 
-    window.location ='orderpage.php'</script>";
+    window.location ='orderpage1.php'</script>";
 } else {
      echo "<script> alert('Your lunch order was not placed'); 
-    window.location ='orderpage.php'</script>";
+    window.location ='orderpage1.php'</script>";
      
 }
 
