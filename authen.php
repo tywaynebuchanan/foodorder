@@ -19,7 +19,7 @@ If(isset($_POST['submit'])){
 
 			if($resultCheck ==1){
 				$_SESSION['Email'] = $_POST['username'];
-				header("Location:orderpage1.php");
+				header("Location:orderpage.php");
 			}
 			else
 			{

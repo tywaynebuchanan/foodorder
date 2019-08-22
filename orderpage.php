@@ -4,137 +4,137 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Food Order</title>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-	<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-	
-	<script>
-  $('.navbar-item').each(function(e) {
-    $(this).click(function(){
-      if($('#navbar-burger-id').hasClass('is-active')){
-        $('#navbar-burger-id').removeClass('is-active');
-        $('#navbar-menu-id').removeClass('is-active');
-      }
-    });
-  });
+	<head>
+		<title>Food Order</title>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css.map">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+		<link rel="shortcut icon" type="image/png" href="images/ordering.png"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+		
+		<script>
+	  $('.navbar-item').each(function(e) {
+	    $(this).click(function(){
+	      if($('#navbar-burger-id').hasClass('is-active')){
+	        $('#navbar-burger-id').removeClass('is-active');
+	        $('#navbar-menu-id').removeClass('is-active');
+	      }
+	    });
+	  });
 
 
-  $('#navbar-burger-id').click(function () {
-    if($('#navbar-burger-id').hasClass('is-active')){
-      $('#navbar-burger-id').removeClass('is-active');
-      $('#navbar-menu-id').removeClass('is-active');
-    }else {
-      $('#navbar-burger-id').addClass('is-active');
-      $('#navbar-menu-id').addClass('is-active');
-    }
-  });
+	  $('#navbar-burger-id').click(function () {
+	    if($('#navbar-burger-id').hasClass('is-active')){
+	      $('#navbar-burger-id').removeClass('is-active');
+	      $('#navbar-menu-id').removeClass('is-active');
+	    }else {
+	      $('#navbar-burger-id').addClass('is-active');
+	      $('#navbar-menu-id').addClass('is-active');
+	    }
+	  });
 
-</script>
+	</script>
 
-</head>
+	</head>
 <body>
 
-<nav class="navbar is-info" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
-<div class="container">
-<div class="navbar-brand">
-      <a class="navbar-item" href="index.php" style="font-weight:bold;">
-        <img src="images/ordering.png" width="25" height="25">
-        Lunch Ordering System
-      </a>
-      <span class="navbar-burger burger" data-target="navMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </div>
-<div id="navMenu" class="navbar-menu">
-<div class="navbar-end">
-        <a href="#" class="navbar-item is-active is-info">Home</a>
-        <a href="orderpage1.php" class="navbar-item">View Orders</a>
-        <a href="#" class="navbar-item">About Us</a>
-        <a href="#" class="navbar-item"><?php            
-if (isset($_SESSION['Email']))
-{
- echo 'Welcome '. $_SESSION['Email'];
- 
-}
- else
- {
- 		header('Location:index.php');
- }
-?> 
+	<nav class="navbar is-info" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+		<div class="container">
+			<div class="navbar-brand">
+	      		<a class="navbar-item" href="index.php" style="font-weight:bold;">
+	        		<img src="images/ordering.png" width="25" height="25">
+	        			Lunch Ordering System
+	      		</a>
+	      			<span class="navbar-burger burger" data-target="navMenu">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		      </span>
+	    	</div>
+	
+		<div id="navMenu" class="navbar-menu">
+				<div class="navbar-end">
+			        <a href="#" class="navbar-item is-active is-info">Home</a>
+			        <a href="vieworders.php" class="navbar-item">View Your Orders</a>
+			        <a href="#" class="navbar-item">About Us</a>
+			        <a href="#" class="navbar-item"><?php            
+								if (isset($_SESSION['Email']))
+								{
+								 echo 'Welcome '. $_SESSION['Email'];
+								 
+								}
+								 else
+								 {
+								 		header('Location:index.php');
+								 }
+								?> 
 
-<a href="logout.php?logout" class="navbar-item">Logout</a>
-                    
-      </div>
-</div>
-</div>
-</nav>
+					<a href="logout.php?logout" class="navbar-item">Logout</a>
+			                    
+	      		</div>
+			</div>
+		</div>
+	</nav>
 
-<section class="hero is-info">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Menu for the Day
-      </h1>
-      <h2 class="subtitle">
-        <?php 
+	<section class="hero is-info">
+	  <div class="hero-body">
+	    <div class="container">
+	      <h1 class="title">
+	        Menu for the Day
+	      </h1>
+	      <h2 class="subtitle">
+	        <?php 
 
-			$qryMenu ="SELECT * FROM tblChefInput;";
-			$result = mysqli_query($conn,$qryMenu);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<h4> Meat: ". $row["Meat"]."</h4>";
-					echo "<h4> Rice: " . $row["Rice"]. "</h4>";
-					echo "<h4> Groud Provision: " . $row["Ground Provision"]. "</h4>";
-					}
+				$qryMenu ="SELECT * FROM tblChefInput;";
+				$result = mysqli_query($conn,$qryMenu);
+				$resultCheck = mysqli_num_rows($result);
+				 if ($resultCheck > 0){
+					while($row = $result->fetch_assoc()) {
+						echo "<h4> Meat: ". $row["Meat"]."</h4>";
+						echo "<h4> Rice: " . $row["Rice"]. "</h4>";
+						echo "<h4> Groud Provision: " . $row["Ground Provision"]. "</h4>";
+						}
+							
+						} else { echo "0 results"; }
 						
-					} else { echo "0 results"; }
-					
-						
-						
-?>
+							
+							
+					?>
 
-      </h2>
-    </div>
-  </div>
-</section>
-
-</div>
+	      </h2>
+	    </div>
+	  </div>
+	</section>
 
 
 
-<div class="container" style="padding-top: 10px;">
-<div class="tile is-ancestor">
-  <div class="tile is-vertical is-8">
-    <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification ">
-          <p class="title">Please Select Your Order</p>
-          
-		<div class="content">	
-	<div>
-	<form autocomplete="off" action="insert.php" method="POST">
-		
-		<div class="control container" style="padding-top:10px;">
-	  <label class="label"> Please select meat</label>
-	  	<label class="radio">
-	    <input type="radio" name="answer1" value="Chicken" required>
-	    Chicken
-	  </label>
-	  <label class="radio">
-	    <input type="radio" name="answer1" value="Curry Goat" required>
-	    Curry Goat
-	  </label>
-	</div>
+
+	<div class="container" style="padding-top: 10px;">
+		<div class="tile is-ancestor">
+		  <div class="tile is-vertical is-8">
+		    <div class="tile">
+		      <div class="tile is-parent is-vertical">
+		        <article class="tile is-child notification ">
+		          <p class="title">Please Select Your Order</p>
+		          
+				<div class="content">	
+			<div>
+			<form autocomplete="off" action="insert.php" method="POST">
+				
+				<div class="control container" style="padding-top:10px;">
+			  <label class="label"> Please select meat</label>
+			  	<label class="radio">
+			    <input type="radio" name="answer1" value="Chicken" required>
+			    Chicken
+			  </label>
+			  <label class="radio">
+			    <input type="radio" name="answer1" value="Curry Goat" required>
+			    Curry Goat
+			  </label>
+			</div>
 
 	<div class="control container" style="padding-top:10px;">
 	  <label class="label"> Please select your staple</label>
@@ -163,31 +163,23 @@ if (isset($_SESSION['Email']))
 	   Vegetables
 	  </label>
 	</div>
-
-	
-
+	</div>
 </div>
-</div>
-
    </article>
-        <article class="tile is-child notification">
-          <p class="title">Select Payment Method</p>
-  		
-  		<div class="select is-rounded">
-  <select name = "payment">
-    <option selected="true" disabled="disabled">Select method of payment</option>
-    <option value="Cash">Cash </option>
-    <option value="Salary Deduction">Salary Deduction</option>
-  </select>
-</div>
+       <article class="tile is-child notification">
+	          <p class="title">Select Payment Method</p>
+	  		
+	  		<div class="select is-rounded">
+	 			 <select name = "payment">
+				    <option selected="true" disabled="disabled">Select method of payment</option>
+				    <option value="Cash">Cash </option>
+				    <option value="Salary Deduction">Salary Deduction</option>
+	  			</select>
+			</div>
 
       </article>
-      </div>
-   
-    </div>
-
-
-
+     </div>
+   </div>
 
     <div class="tile is-parent">
       <article class="tile is-child notification">
@@ -203,8 +195,6 @@ if (isset($_SESSION['Email']))
     </div>
   </div>
 
-
-
   <div class="tile is-parent">
     <article class="tile is-child notification is-info">
       <div class="content">
@@ -213,7 +203,8 @@ if (isset($_SESSION['Email']))
          <?php 
 			
 			$res = $_SESSION['Email'];
-			$qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res'";
+			$qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res' AND 
+			date_format(OrderTime, '%Y-%m-%d') = CURDATE()";
 			$resultorder = mysqli_query($conn,$qryorder);
 			$resultCheckorder = mysqli_num_rows($resultorder);
 			 if ($resultCheckorder > 0){
@@ -239,8 +230,6 @@ if (isset($_SESSION['Email']))
   </div>
 </div>
 </div>
-
-
 
 </body>
 

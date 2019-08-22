@@ -57,7 +57,7 @@ session_start();
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
         <a href="#" class="navbar-item is-active is-info">Home</a>
-        <a href="vieworders.php" class="navbar-item">View Orders</a>
+        <a href="#" class="navbar-item">View Your Orders</a>
         <a href="#" class="navbar-item">About Us</a>
         <a href="#" class="navbar-item"><?php            
 if (isset($_SESSION['Email']))
@@ -141,8 +141,9 @@ if (isset($_SESSION['Email']))
         <div class="title">
          <?php 
       
+    
       $res = $_SESSION['Email'];
-      $qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res'";
+      $qryorder = "SELECT * FROM tblOrders WHERE Email1 = '$res' AND OrderTime = CURDATE()";
       $resultorder = mysqli_query($conn,$qryorder);
       $resultCheckorder = mysqli_num_rows($resultorder);
        if ($resultCheckorder > 0){

@@ -1,4 +1,7 @@
-<?php require 'config.php';?>
+<?php require 'config.php';
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -13,9 +16,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 </head>
+<script>
+  $('.navbar-item').each(function(e) {
+    $(this).click(function(){
+      if($('#navbar-burger-id').hasClass('is-active')){
+        $('#navbar-burger-id').removeClass('is-active');
+        $('#navbar-menu-id').removeClass('is-active');
+      }
+    });
+  });
+
+
+  $('#navbar-burger-id').click(function () {
+    if($('#navbar-burger-id').hasClass('is-active')){
+      $('#navbar-burger-id').removeClass('is-active');
+      $('#navbar-menu-id').removeClass('is-active');
+    }else {
+      $('#navbar-burger-id').addClass('is-active');
+      $('#navbar-menu-id').addClass('is-active');
+    }
+  });
+
+</script>
+
 <body>
 
-<nav class="navbar is-info">
+<nav class="navbar is-info" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
 <div class="container">
 <div class="navbar-brand">
       <a class="navbar-item" href="index.php" style="font-weight:bold;">
@@ -30,341 +56,91 @@
     </div>
 <div id="navMenu" class="navbar-menu">
 <div class="navbar-end">
-        <a href="index.php" class="navbar-item is-active">Home</a>
-        <a href="#" class="navbar-item">View Orders</a>
+        <a href="#" class="navbar-item is-active is-info">Home</a>
+        <a href="vieworders.php" class="navbar-item">View Your Orders</a>
         <a href="#" class="navbar-item">About Us</a>
-        
+        <a href="#" class="navbar-item"><?php            
+if (isset($_SESSION['Email']))
+{
+ echo 'Welcome '. $_SESSION['Email'];
+ 
+}
+ $res = $_SESSION['Email'];
+?> 
+
+<a href="logout.php?logout" class="navbar-item">Logout</a>
+                    
       </div>
 </div>
 </div>
 </nav>
-<script type="text/javascript">
-      (function() {
-        var burger = document.querySelector('.burger');
-        var nav = document.querySelector('#'+burger.dataset.target);
 
-        burger.addEventListener('click', function(){
-          burger.classList.toggle('is-active');
-          nav.classList.toggle('is-active');
-        });
-      })();
-    </script>
+<div class=" container" style="padding-top: 10px;">
+      <button class="button is-info is-outlined" type="submit" name="submit">August</button>
+      <?php 
+        $res = $_SESSION['Email'];
+        if (isset($_GET['submit'])) {
+      
+      
+      $filterbymonth = "SELECT * FROM tblOrders WHERE Email1 = $res AND OrderTime = '2019-08-19'";
+      $resultsfilter = mysqli_query($conn,$filterbymonth);
+      $resultCheckorder = mysqli_num_rows($resultsfilter);
+      
+      if ($resultsfilter > 0) {
+        while ($row1 = $filterbymonth->fetch_assoc()){
 
-
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>MetCalfe Street</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'MetCalfe Street' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>Richmond Farm</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Richmond Farm' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>General Penitentiary</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'General Penitentiary' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>Prison Oval</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Prison Oval' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-					
-
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>South Camp</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'South Camp' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-					
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>Horizon Remand Center</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Horizon Remand Centre' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-					
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-<div style="padding-top: 10px;">
- <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
-  <thead>
-     <caption><strong>Fort Augusta (South Camp)</strong></caption>
-     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Institution</th>
-      <th>Meat</th>
-      <th>Staple</th>
-      <th>Side</th>
- 
-    </tr>
-  </thead>   
- 
-<tbody>
-     <?php 
-
-			$qryView ="SELECT * FROM tblOrder1 WHERE Institution = 'Fort Augusta(South Camp' ORDER BY OrderTime ASC;";
-			$result = mysqli_query($conn,$qryView);
-			$resultCheck = mysqli_num_rows($result);
-			 if ($resultCheck > 0){
-				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["FirstName"]. "</td><td>" . $row["LastName"] . "</td><td>". $row["Institution"]. "</td><td>".$row["Meat"]. "</td><td>". $row["Staple"]."</td><td>". $row["Side"]."</td></tr>";
-						
-					} 
-
-					}
-					else {echo "<tr><td> 0 results </td></tr>";}
-
-					mysqli_close($conn);
-
-			
-?>
-</tbody>
-</table>
-
-</div>
-
-
-<label>
-    <input class="checkbox" type="checkbox" onchange="toggleDisable(this);" id="check"/> 
-    enable
-</label>
-
-<!-- This is the field set -->
-<fieldset id="field_set" disabled="disabled">
-    <div class="field">
-  <p class="control">
-    <input  class="input" type="text" placeholder="Card Number">
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input  class="input" type="text" placeholder="Name on Card">
+          echo "<tr><td>" . $row1["Meat"]. "</td><td>" . $row1["Staple"] . "</td><td>"
+            . $row1["Side"]. "</td><td>".$row1["PaymentMethod"]."</td></tr>";
+          echo "</table>";
+      }
+    }else{
+        echo "0 results";
+      }
     
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input   class="input" type="text" placeholder="MM/YY">
-    
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <input   class="input" type="text" placeholder="CVC">
-    
-  </p>
-</div>
+  }
+?>
 
-</fieldset>
-
-
-<script>
   
-function toggleDisable(checkbox) {
-    var toggle = document.getElementById("field_set");
-    $(toggle).prop($(checkbox).prop('checked'),'disabled');
-}
+  </div>
 
 
-</script>
-</body>
+
+<div style="padding-top: 10px;">
+ <table class="table container  is-bordered is-striped is-narrow is-hoverable" >
+  <thead>
+     <caption><strong>
+
+     </strong></caption>
+     <tr>
+      <th>Lunch Order Detials</th>
+       <tr><th> <?php echo date('M j Y')?></th></tr>
+    </tr>
+  </thead>   
+ 
+<tbody>
+     <?php 
+
+
+      
+			$qryView ="SELECT * FROM tblOrders WHERE Email1 = '$res';";
+			$result = mysqli_query($conn,$qryView);
+			$resultCheck = mysqli_num_rows($result);
+			 if ($resultCheck > 0){
+				while($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["Meat"]. "</td><td>" . $row["Staple"] . "</td><td>". $row["Side"]. "</td><td>".$row["OrderTime"]. "</td><td>". $row["PaymentMethod"]."</tr></td>";
+						
+					} 
+
+					}
+					else {echo "<tr><td> 0 results </td></tr>";}
+
+			
+?>
+</tbody>
+</table>
+
+</div>
+
 
 <div style="padding-top: 10px;">
 <footer class="footer" >
